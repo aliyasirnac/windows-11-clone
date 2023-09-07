@@ -1,7 +1,9 @@
+"use client";
 import BottomNavigation from "@/components/BottomNavigation";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { usePage } from "@/store";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,13 +17,16 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const page = usePage((state) => state.onWhichPage);
+
   return (
     <html lang="en">
       <body
-        className={`${inter.className} bg-bgImage h-screen flex flex-col w-full`}
+        className={`${inter.className} ${page === "desktop" ? "bg-bgDesktopImage" : "bg-bgLockScreenImage"}  h-screen flex flex-col w-full`}
       >
         {children}
-        <BottomNavigation />
+
+        {page === "desktop" && <BottomNavigation />}
       </body>
     </html>
   );
