@@ -13,10 +13,10 @@ import {
 } from "react-icons/ai";
 import { IoIosRefresh } from "react-icons/io";
 import { GoSquare, GoStarFill } from "react-icons/go";
+import Link from "next/link";
 
 export default function Desktop() {
   const [folder, setFolder] = useState(false);
-
 
   return (
     <div className="flex p-4 h-screen relative overflow-hidden w-full flex-wrap text-center font-mono flex-col ">
@@ -168,13 +168,22 @@ export default function Desktop() {
                     </td>
                   </thead>
                   <tbody>
-                    <td className="flex px-2 hover:bg-blue-300 container mx-auto justify-between">
-                      <td className="flex text-sm flex-1">Windows 11 Clone</td>
-                      <div className="flex-1 text-sm justify-between flex mx-4">
-                        <td>50 MB</td>
-                        <td>22.08.2023</td>
-                      </div>
-                    </td>
+                    <tr className="flex container mx-auto justify-between">
+                      <Link
+                        className="w-full"
+                        href="https://github.com/aliyasirnac/windows-11-clone"
+                      >
+                        <td className="flex px-2 hover:bg-blue-300 container mx-auto justify-between">
+                          <td className="flex text-sm flex-1">
+                            Windows 11 Clone
+                          </td>
+                          <div className="flex-1 text-sm justify-between flex mx-4">
+                            <td>50 MB</td>
+                            <td>22.08.2023</td>
+                          </div>
+                        </td>
+                      </Link>
+                    </tr>
                   </tbody>
                 </table>
               </div>
